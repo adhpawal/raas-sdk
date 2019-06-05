@@ -23,6 +23,7 @@ public class Transaction {
     private String remittancePurpose;
     private String ipAddress;
     private String status;
+    private String deliveryStatus;
     private String referenceNumber;
 
     public String getReferenceId() {
@@ -137,6 +138,14 @@ public class Transaction {
         this.referenceNumber = referenceNumber;
     }
 
+    public String getDeliveryStatus() {
+        return deliveryStatus;
+    }
+
+    public void setDeliveryStatus(String deliveryStatus) {
+        this.deliveryStatus = deliveryStatus;
+    }
+
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Transaction{");
@@ -153,6 +162,7 @@ public class Transaction {
         sb.append(", remittancePurpose='").append(remittancePurpose).append('\'');
         sb.append(", ipAddress='").append(ipAddress).append('\'');
         sb.append(", status='").append(status).append('\'');
+        sb.append(", deliveryStatus='").append(deliveryStatus).append('\'');
         sb.append(", referenceNumber='").append(referenceNumber).append('\'');
         sb.append('}');
         return sb.toString();
