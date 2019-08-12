@@ -14,6 +14,7 @@ public class SenderBank {
     private String accountType;
     private String accountNumber;
     private String routingNumber;
+    private String verificationStatus;
 
     public String getReferenceId() {
         return referenceId;
@@ -61,6 +62,14 @@ public class SenderBank {
 
     public void setRoutingNumber(String routingNumber) {
         this.routingNumber = routingNumber;
+    }
+
+    public String getVerificationStatus() {
+        return verificationStatus;
+    }
+
+    public void setVerificationStatus(String verificationStatus) {
+        this.verificationStatus = verificationStatus;
     }
 
     @Override public String toString() {
