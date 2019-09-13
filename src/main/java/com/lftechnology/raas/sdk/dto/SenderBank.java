@@ -15,6 +15,7 @@ public class SenderBank {
     private String accountNumber;
     private String routingNumber;
     private String verificationStatus;
+    private String accountHolderName;
 
     public String getReferenceId() {
         return referenceId;
@@ -58,6 +59,14 @@ public class SenderBank {
 
     public String getRoutingNumber() {
         return routingNumber;
+    }
+
+    public String getAccountHolderName() {
+        return accountHolderName;
+    }
+
+    public void setAccountHolderName(String accountHolderName) {
+        this.accountHolderName = accountHolderName;
     }
 
     public void setRoutingNumber(String routingNumber) {
