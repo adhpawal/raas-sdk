@@ -25,6 +25,8 @@ public class Transaction {
     private String status;
     private String deliveryStatus;
     private String referenceNumber;
+    private String senderFundingAccountId;
+    private String fundingSource;
 
     public String getReferenceId() {
         return referenceId;
@@ -146,9 +148,25 @@ public class Transaction {
         this.deliveryStatus = deliveryStatus;
     }
 
+    public String getSenderFundingAccountId() {
+        return senderFundingAccountId;
+    }
+
+    public void setSenderFundingAccountId(String senderFundingAccountId) {
+        this.senderFundingAccountId = senderFundingAccountId;
+    }
+
+    public String getFundingSource() {
+        return fundingSource;
+    }
+
+    public void setFundingSource(String fundingSource) {
+        this.fundingSource = fundingSource;
+    }
+
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Transaction{");
+        final StringBuilder sb = new StringBuilder("Transaction{");
         sb.append("referenceId='").append(referenceId).append('\'');
         sb.append(", senderAmount=").append(senderAmount);
         sb.append(", exchangeRate=").append(exchangeRate);
@@ -164,6 +182,8 @@ public class Transaction {
         sb.append(", status='").append(status).append('\'');
         sb.append(", deliveryStatus='").append(deliveryStatus).append('\'');
         sb.append(", referenceNumber='").append(referenceNumber).append('\'');
+        sb.append(", senderFundingAccountId='").append(senderFundingAccountId).append('\'');
+        sb.append(", fundingSource='").append(fundingSource).append('\'');
         sb.append('}');
         return sb.toString();
     }
