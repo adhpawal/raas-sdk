@@ -28,7 +28,7 @@ public class Recipient {
     private String dateOfBirth;
     private String occupation;
     private String senderRelationship;
-    private boolean isCashPickupEnabled;
+    private boolean enableCashPickup;
     private List<String> availablePayoutMethods;
 
 
@@ -176,12 +176,12 @@ public class Recipient {
         this.senderRelationship = senderRelationship;
     }
 
-    public boolean isCashPickupEnabled() {
-        return isCashPickupEnabled;
+    public boolean isEnableCashPickup() {
+        return enableCashPickup;
     }
 
-    public void setCashPickupEnabled(boolean cashPickupEnabled) {
-        isCashPickupEnabled = cashPickupEnabled;
+    public void setEnableCashPickup(boolean enableCashPickup) {
+        this.enableCashPickup = enableCashPickup;
     }
 
     public List<String> getAvailablePayoutMethods() {
@@ -213,7 +213,7 @@ public class Recipient {
         sb.append(", dateOfBirth='").append(dateOfBirth).append('\'');
         sb.append(", occupation='").append(occupation).append('\'');
         sb.append(", senderRelationship='").append(senderRelationship).append('\'');
-        sb.append(", isCashPickupEnabled=").append(isCashPickupEnabled);
+        sb.append(", enableCashPickup=").append(enableCashPickup);
         sb.append(", availablePayoutMethods=").append(availablePayoutMethods);
         sb.append('}');
         return sb.toString();
