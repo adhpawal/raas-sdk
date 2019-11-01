@@ -27,6 +27,8 @@ public class Transaction {
     private String referenceNumber;
     private String senderFundingAccountId;
     private String fundingSource;
+    private Long payerId;
+    private String payoutMethod;
 
     public String getReferenceId() {
         return referenceId;
@@ -162,6 +164,21 @@ public class Transaction {
 
     public void setFundingSource(String fundingSource) {
         this.fundingSource = fundingSource;
+    }
+      public Long getPayerId() {
+        return payerId;
+    }
+
+    public void setPayerId(Long payerId) {
+        this.payerId = payerId;
+    }
+
+    public String getPayoutMethod() {
+        return payoutMethod;
+    }
+
+    public void setPayoutMethod(String payoutMethod) {
+        this.payoutMethod = payoutMethod;
     }
 
     @Override

@@ -2,6 +2,8 @@ package com.lftechnology.raas.sdk.dto;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 /**
  * @author Kiran Pariyar <kiranpariyar@lftechnology.com>
  */
@@ -26,6 +28,9 @@ public class Recipient {
     private String dateOfBirth;
     private String occupation;
     private String senderRelationship;
+    private boolean isCashPickupEnabled;
+    private List<String> availablePayoutMethods;
+
 
     public String getReferenceId() {
         return referenceId;
@@ -171,12 +176,46 @@ public class Recipient {
         this.senderRelationship = senderRelationship;
     }
 
-    @Override public String toString() {
-        return "Recipient{" + "referenceId='" + referenceId + '\'' + ", senderId='" + senderId + '\'' + ", firstName='" + firstName + '\''
-                + ", middleName='" + middleName + '\'' + ", lastName='" + lastName + '\'' + ", country='" + country + '\''
-                + ", addressLine1='" + addressLine1 + '\'' + ", addressLine2='" + addressLine2 + '\'' + ", city='" + city + '\''
-                + ", postalCode='" + postalCode + '\'' + ", province='" + province + '\'' + ", email='" + email + '\'' + ", homePhone='"
-                + homePhone + '\'' + ", mobilePhone='" + mobilePhone + '\'' + ", workPhone='" + workPhone + '\'' + ", dateOfBirth='"
-                + dateOfBirth + '\'' + ", occupation='" + occupation + '\'' + ", senderRelationship='" + senderRelationship + '\'' + '}';
+    public boolean isCashPickupEnabled() {
+        return isCashPickupEnabled;
+    }
+
+    public void setCashPickupEnabled(boolean cashPickupEnabled) {
+        isCashPickupEnabled = cashPickupEnabled;
+    }
+
+    public List<String> getAvailablePayoutMethods() {
+        return availablePayoutMethods;
+    }
+
+    public void setAvailablePayoutMethods(List<String> availablePayoutMethods) {
+        this.availablePayoutMethods = availablePayoutMethods;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Recipient{");
+        sb.append("referenceId='").append(referenceId).append('\'');
+        sb.append(", senderId='").append(senderId).append('\'');
+        sb.append(", firstName='").append(firstName).append('\'');
+        sb.append(", middleName='").append(middleName).append('\'');
+        sb.append(", lastName='").append(lastName).append('\'');
+        sb.append(", country='").append(country).append('\'');
+        sb.append(", addressLine1='").append(addressLine1).append('\'');
+        sb.append(", addressLine2='").append(addressLine2).append('\'');
+        sb.append(", city='").append(city).append('\'');
+        sb.append(", postalCode='").append(postalCode).append('\'');
+        sb.append(", province='").append(province).append('\'');
+        sb.append(", email='").append(email).append('\'');
+        sb.append(", homePhone='").append(homePhone).append('\'');
+        sb.append(", mobilePhone='").append(mobilePhone).append('\'');
+        sb.append(", workPhone='").append(workPhone).append('\'');
+        sb.append(", dateOfBirth='").append(dateOfBirth).append('\'');
+        sb.append(", occupation='").append(occupation).append('\'');
+        sb.append(", senderRelationship='").append(senderRelationship).append('\'');
+        sb.append(", isCashPickupEnabled=").append(isCashPickupEnabled);
+        sb.append(", availablePayoutMethods=").append(availablePayoutMethods);
+        sb.append('}');
+        return sb.toString();
     }
 }
