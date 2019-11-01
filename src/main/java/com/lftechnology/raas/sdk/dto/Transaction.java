@@ -25,6 +25,8 @@ public class Transaction {
     private String status;
     private String deliveryStatus;
     private String referenceNumber;
+    private Long payerId;
+    private String payoutMethod;
 
     public String getReferenceId() {
         return referenceId;
@@ -144,6 +146,22 @@ public class Transaction {
 
     public void setDeliveryStatus(String deliveryStatus) {
         this.deliveryStatus = deliveryStatus;
+    }
+
+    public Long getPayerId() {
+        return payerId;
+    }
+
+    public void setPayerId(Long payerId) {
+        this.payerId = payerId;
+    }
+
+    public String getPayoutMethod() {
+        return payoutMethod;
+    }
+
+    public void setPayoutMethod(String payoutMethod) {
+        this.payoutMethod = payoutMethod;
     }
 
     @Override
