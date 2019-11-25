@@ -1,18 +1,25 @@
 package com.lftechnology.raas.sdk.dto;
 
 
+import com.google.gson.annotations.SerializedName;
+
 public class Document {
 
     private String id;
 
+    @SerializedName("frontImageLink")
     private String frontImageLink;
 
+    @SerializedName("backImageFileName")
     private String backImageFileName;
 
+    @SerializedName("documentType")
     private String documentType;
 
+    @SerializedName("documentIdNumber")
     private String documentIdNumber;
 
+    @SerializedName("fileName")
     private String fileName;
 
     public String getId() {

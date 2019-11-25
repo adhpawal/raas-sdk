@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.UUID;
 
 public class DocumentApiTest {
-    private String baseUrl = "https://sandbox.api.machpay.com/v1/";
+    private String baseUrl = "https://test.api.machpay.com/v2/";
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
@@ -33,8 +33,8 @@ public class DocumentApiTest {
         //Given
         DocumentApi documentApi = new DocumentApi(this.baseUrl,getInvalidHeader());
 
-        Document document = documentApi.getInvoiceLink(UUID.fromString("3728a857-acb8-4399-b70b-faba4929b9af")
-                ,UUID.fromString("975caded-476c-413b-ac5e-fd393ca6e0e6"));
+        Document document = documentApi.getInvoiceLink(UUID.fromString("f9f27b82-b56b-4924-abf5-2db2f5df6965")
+                ,UUID.fromString("28d01d75-ab81-4c43-b028-3d0756cf27d8"));
 
         System.out.println(document.toString());
         //Then
@@ -43,8 +43,8 @@ public class DocumentApiTest {
 
     private Map<String,String> getInvalidHeader(){
         Map<String,String> headers = new HashMap<>();
-        headers.put(CommonConstant.HTTP_CLIENT_ID, "wiselyid");
-        headers.put(CommonConstant.HTTP_CLIENT_SECRET, "wiselysecret");
+        headers.put(CommonConstant.HTTP_CLIENT_ID, "rebtel_id");
+        headers.put(CommonConstant.HTTP_CLIENT_SECRET, "rebtel_secret");
         return headers;
     }
 }
