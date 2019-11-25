@@ -62,4 +62,17 @@ public class Document {
     public void setFileName(String fileName) {
         this.fileName = fileName;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Document{");
+        sb.append("id='").append(id).append('\'');
+        sb.append(", frontImageLink='").append(frontImageLink).append('\'');
+        sb.append(", backImageFileName='").append(backImageFileName).append('\'');
+        sb.append(", documentType='").append(documentType).append('\'');
+        sb.append(", documentIdNumber='").append(documentIdNumber).append('\'');
+        sb.append(", fileName='").append(fileName).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }
