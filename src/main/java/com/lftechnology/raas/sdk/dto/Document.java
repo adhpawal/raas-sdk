@@ -5,9 +5,13 @@ public class Document {
 
     private String id;
 
-    private String link;
+    private String frontImageLink;
 
-    private String type;
+    private String backImageFileName;
+
+    private String documentType;
+
+    private String documentIdNumber;
 
     private String fileName;
 
@@ -19,20 +23,36 @@ public class Document {
         this.id = id;
     }
 
-    public String getLink() {
-        return link;
+    public String getFrontImageLink() {
+        return frontImageLink;
     }
 
-    public void setLink(String link) {
-        this.link = link;
+    public void setFrontImageLink(String frontImageLink) {
+        this.frontImageLink = frontImageLink;
     }
 
-    public String getType() {
-        return type;
+    public String getBackImageFileName() {
+        return backImageFileName;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setBackImageFileName(String backImageFileName) {
+        this.backImageFileName = backImageFileName;
+    }
+
+    public String getDocumentType() {
+        return documentType;
+    }
+
+    public void setDocumentType(String documentType) {
+        this.documentType = documentType;
+    }
+
+    public String getDocumentIdNumber() {
+        return documentIdNumber;
+    }
+
+    public void setDocumentIdNumber(String documentIdNumber) {
+        this.documentIdNumber = documentIdNumber;
     }
 
     public String getFileName() {
@@ -41,16 +61,5 @@ public class Document {
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("Document{");
-        sb.append("id='").append(id).append('\'');
-        sb.append(", link='").append(link).append('\'');
-        sb.append(", type='").append(type).append('\'');
-        sb.append(", fileName='").append(fileName).append('\'');
-        sb.append('}');
-        return sb.toString();
     }
 }
