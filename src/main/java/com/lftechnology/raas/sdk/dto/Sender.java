@@ -12,6 +12,7 @@ public class Sender {
     private String firstName;
     private String middleName;
     private String lastName;
+    private String mobilePhone;
     private String email;
     private String state;
     private String status;
@@ -79,6 +80,14 @@ public class Sender {
 
     public void setCurrentTier(String currentTier) {
         this.currentTier = currentTier;
+    }
+
+    public String getMobilePhone() {
+        return mobilePhone;
+    }
+
+    public void setMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
     }
 
     @Override
