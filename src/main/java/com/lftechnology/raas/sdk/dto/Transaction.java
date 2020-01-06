@@ -29,6 +29,7 @@ public class Transaction {
     private String fundingSource;
     private Long payerId;
     private String payoutMethod;
+    private String receiptNumber;
 
     public String getReferenceId() {
         return referenceId;
@@ -181,6 +182,14 @@ public class Transaction {
         this.payoutMethod = payoutMethod;
     }
 
+    public String getReceiptNumber() {
+        return receiptNumber;
+    }
+
+    public void setReceiptNumber(String receiptNumber) {
+        this.receiptNumber = receiptNumber;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Transaction{");
@@ -201,6 +210,9 @@ public class Transaction {
         sb.append(", referenceNumber='").append(referenceNumber).append('\'');
         sb.append(", senderFundingAccountId='").append(senderFundingAccountId).append('\'');
         sb.append(", fundingSource='").append(fundingSource).append('\'');
+        sb.append(", payerId=").append(payerId);
+        sb.append(", payoutMethod='").append(payoutMethod).append('\'');
+        sb.append(", receiptNumber='").append(receiptNumber).append('\'');
         sb.append('}');
         return sb.toString();
     }
