@@ -3,6 +3,7 @@ package com.lftechnology.raas.sdk.dto;
 import com.google.gson.annotations.SerializedName;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * @author Kiran Pariyar <kiranpariyar@lftechnology.com>
@@ -15,7 +16,10 @@ public class Transaction {
     private BigDecimal exchangeRate;
     private BigDecimal recipientAmount;
     private BigDecimal feeAmount;
+
+    @SerializedName(value="sender_bank_id", alternate={"sender_funding_account_id"})
     private String senderBankId;
+
     private String recipientId;
     private String recipientBankId;
     private String recipientCurrency;
@@ -23,7 +27,11 @@ public class Transaction {
     private String remittancePurpose;
     private String ipAddress;
     private String status;
+    private String deliveryStatus;
     private String referenceNumber;
+    private String riskScore;
+    private List<StatusChangeReason> holdReasons;
+    private List<StatusChangeHistory> statusHistory;
 
     public String getReferenceId() {
         return referenceId;
@@ -135,6 +143,38 @@ public class Transaction {
 
     public void setReferenceNumber(String referenceNumber) {
         this.referenceNumber = referenceNumber;
+    }
+
+    public List<StatusChangeReason> getHoldReasons() {
+        return holdReasons;
+    }
+
+    public void setHoldReasons(List<StatusChangeReason> holdReasons) {
+        this.holdReasons = holdReasons;
+    }
+
+    public String getRiskScore() {
+        return riskScore;
+    }
+
+    public void setRiskScore(String riskScore) {
+        this.riskScore = riskScore;
+    }
+
+    public List<StatusChangeHistory> getStatusHistory() {
+        return statusHistory;
+    }
+
+    public void setStatusHistory(List<StatusChangeHistory> statusHistory) {
+        this.statusHistory = statusHistory;
+    }
+
+    public String getDeliveryStatus() {
+        return deliveryStatus;
+    }
+
+    public void setDeliveryStatus(String deliveryStatus) {
+        this.deliveryStatus = deliveryStatus;
     }
 
     @Override

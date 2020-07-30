@@ -62,7 +62,7 @@ public class RequestApi {
         httpClient.addInterceptor(interceptor);
 
         Gson gson = new GsonBuilder()
-                .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+                .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).setDateFormat("yyyy-MM-dd hh:mm:ss")
                 .create();
 
         return new Retrofit

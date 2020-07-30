@@ -2,6 +2,8 @@ package com.lftechnology.raas.sdk.dto;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 /**
  * @author Kiran Pariyar <kiranpariyar@lftechnology.com>
  */
@@ -13,9 +15,12 @@ public class Sender {
     private String middleName;
     private String lastName;
     private String email;
+    private String mobilePhone;
     private String state;
     private String status;
     private String currentTier;
+    private List<String> requestedFields;
+    private List<String> cipFailureReasons;
 
     public String getReferenceId() {
         return referenceId;
@@ -79,6 +84,30 @@ public class Sender {
 
     public void setCurrentTier(String currentTier) {
         this.currentTier = currentTier;
+    }
+
+    public List<String> getRequestedFields() {
+        return requestedFields;
+    }
+
+    public void setRequestedFields(List<String> requestedFields) {
+        this.requestedFields = requestedFields;
+    }
+
+    public List<String> getCipFailureReasons() {
+        return cipFailureReasons;
+    }
+
+    public void setCipFailureReasons(List<String> cipFailureReasons) {
+        this.cipFailureReasons = cipFailureReasons;
+    }
+
+    public String getMobilePhone() {
+        return mobilePhone;
+    }
+
+    public void setMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
     }
 
     @Override

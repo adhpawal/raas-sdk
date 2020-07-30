@@ -1,15 +1,12 @@
 package com.lftechnology.raas.sdk.service;
 
+import com.lftechnology.raas.sdk.dto.DeliveryConfirmation;
+import com.lftechnology.raas.sdk.dto.Invoice;
 import com.lftechnology.raas.sdk.dto.Transaction;
 import com.lftechnology.raas.sdk.dto.DeliveryRequest;
 import com.lftechnology.raas.sdk.pojo.ListResponse;
 import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.DELETE;
-import retrofit2.http.GET;
-import retrofit2.http.PATCH;
-import retrofit2.http.POST;
-import retrofit2.http.Path;
+import retrofit2.http.*;
 
 import java.util.UUID;
 
@@ -36,7 +33,10 @@ public interface TransactionApiService {
     @PATCH("senders/{senderId}/transactions/delivery-requests/{transactionId}")
     Call<Void> requestTransactionDelivery(@Path("senderId") UUID senderId, @Path("transactionId") UUID transactionId, @Body DeliveryRequest deliveryRequest);
 
-    @PATCH("senders/{senderId}/transactions/delivery-requests/{transactionId}")
-    Call<Void> deliver(@Path("senderId") UUID senderId, @Path("transactionId") UUID transactionId, @Body DeliveryRequest deliveryRequest);
+    @POST("senders/{senderId}/transactions/{transactionId}/delivery-details")
+    Call<Void> deliver(@Path("senderId") UUID senderId, @Path("transactionId") UUID transactionId, @Body DeliveryConfirmation deliveryRequest);
+
+    @GET("senders/{senderId}/transactions/{transactionId}/invoice?type=LINK")
+    Call<Invoice> fetchInvoice(@Path("senderId") UUID senderId, @Path("transactionId") UUID transactionId);
 }
 

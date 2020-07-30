@@ -3,6 +3,7 @@ package com.lftechnology.raas.sdk.service;
 import com.lftechnology.raas.sdk.dto.Sender;
 import com.lftechnology.raas.sdk.dto.SenderWidget;
 import com.lftechnology.raas.sdk.dto.SenderWidgetResponse;
+import com.lftechnology.raas.sdk.dto.UserMigration;
 import com.lftechnology.raas.sdk.pojo.ListResponse;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -29,5 +30,8 @@ public interface SenderApiService {
 
     @PUT("senders/{id}/initiate-cip")
     Call<SenderWidgetResponse> cip(@Path("id")UUID id, @Body SenderWidget senderWidget);
+
+    @POST("migration/senders/{id}")
+    Call<Void> migrate(@Path("id")UUID id, @Body UserMigration userMigration);
 }
 

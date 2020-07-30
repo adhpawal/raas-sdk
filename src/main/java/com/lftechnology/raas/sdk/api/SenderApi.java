@@ -3,6 +3,7 @@ package com.lftechnology.raas.sdk.api;
 import com.lftechnology.raas.sdk.dto.Sender;
 import com.lftechnology.raas.sdk.dto.SenderWidget;
 import com.lftechnology.raas.sdk.dto.SenderWidgetResponse;
+import com.lftechnology.raas.sdk.dto.UserMigration;
 import com.lftechnology.raas.sdk.exception.ApiException;
 import com.lftechnology.raas.sdk.pojo.ListResponse;
 import com.lftechnology.raas.sdk.service.SenderApiService;
@@ -72,6 +73,25 @@ public class SenderApi {
         Call<SenderWidgetResponse> call = service.cip(id, senderWidget);
         return executeCIPApiCall(call);
     }
+
+    public void cip(UUID id, UserMigration userMigration){
+        Retrofit retrofit = this.requestApi.getRetrofitObjectCIP();
+        SenderApiService service = retrofit.create(SenderApiService.class);
+        Call<Void> call = service.migrate(id, userMigration);
+        migrateCall(call);
+    }
+
+    private void migrateCall(Call<Void> call) {
+        try {
+            Response<Void> response = call.execute();
+            if (!response.isSuccessful()) {
+                throw new ApiException(response.errorBody().string());
+            }
+        } catch (IOException e) {
+            throw new ApiException();
+        }
+    }
+
 
     private SenderWidgetResponse executeCIPApiCall(Call<SenderWidgetResponse> call) {
         try {

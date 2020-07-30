@@ -1,6 +1,8 @@
 package com.lftechnology.raas.sdk.api;
 
+import com.lftechnology.raas.sdk.dto.DeliveryConfirmation;
 import com.lftechnology.raas.sdk.dto.DeliveryRequest;
+import com.lftechnology.raas.sdk.dto.Invoice;
 import com.lftechnology.raas.sdk.dto.Transaction;
 import com.lftechnology.raas.sdk.exception.ApiException;
 import com.lftechnology.raas.sdk.pojo.ListResponse;
@@ -79,6 +81,35 @@ public class TransactionApi {
             throw new ApiException("Could not request Transaction delivery. Error in Raas SDK.");
         }
 
+    }
+
+    public void deliveryConfirmation(UUID senderId, UUID transactionId, DeliveryConfirmation deliveryRequest){
+        Retrofit retrofit = this.requestApi.getRetrofitObject();
+        TransactionApiService service = retrofit.create(TransactionApiService.class);
+        Call<Void> call = service.deliver(senderId,transactionId, deliveryRequest);
+        try {
+            Response<Void> response = call.execute();
+            if (!response.isSuccessful()) {
+                throw new ApiException(response.errorBody().string());
+            }
+        } catch (IOException e) {
+            throw new ApiException("Could not request Transaction delivery. Error in Raas SDK.");
+        }
+    }
+
+    public Invoice getInvoice(UUID senderId, UUID transactionId){
+        Retrofit retrofit = this.requestApi.getRetrofitObject();
+        TransactionApiService service = retrofit.create(TransactionApiService.class);
+        Call<Invoice> call = service.fetchInvoice(senderId,transactionId);
+        try {
+            Response<Invoice> response = call.execute();
+            if (!response.isSuccessful()) {
+                throw new ApiException(response.errorBody().string());
+            }
+            return response.body();
+        } catch (IOException e) {
+            throw new ApiException("Unable to fetch Invoice for given reference Id.");
+        }
     }
 
     private Transaction executeApiCall(Call<Transaction> call) {
