@@ -17,6 +17,8 @@ public class FundingSource {
     private String accountNumber;
     private String routingNumber;
 
+    private Boolean regulated;
+
     public String getReferenceId() {
         return referenceId;
     }
@@ -95,5 +97,13 @@ public class FundingSource {
 
     public void setRoutingNumber(String routingNumber) {
         this.routingNumber = routingNumber;
+    }
+
+    public Boolean getRegulated() {
+        return regulated;
+    }
+
+    public void setRegulated(Boolean regulated) {
+        this.regulated = regulated;
     }
 }

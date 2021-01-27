@@ -17,7 +17,7 @@ public class Transaction {
     private BigDecimal recipientAmount;
     private BigDecimal feeAmount;
 
-    @SerializedName(value="sender_bank_id", alternate={"sender_funding_account_id"})
+    @SerializedName(value="sender_funding_account_id")
     private String senderBankId;
 
     private String recipientId;
@@ -30,8 +30,28 @@ public class Transaction {
     private String deliveryStatus;
     private String referenceNumber;
     private String riskScore;
+    @SerializedName("funding_source")
+    private String type;
     private List<StatusChangeReason> holdReasons;
     private List<StatusChangeHistory> statusHistory;
+    private String payoutMethod;
+    private String payerId;
+
+    public String getPayerId() {
+        return payerId;
+    }
+
+    public void setPayerId(String payerId) {
+        this.payerId = payerId;
+    }
+
+    public String getPayoutMethod() {
+        return payoutMethod;
+    }
+
+    public void setPayoutMethod(String payoutMethod) {
+        this.payoutMethod = payoutMethod;
+    }
 
     public String getReferenceId() {
         return referenceId;
@@ -196,5 +216,13 @@ public class Transaction {
         sb.append(", referenceNumber='").append(referenceNumber).append('\'');
         sb.append('}');
         return sb.toString();
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

@@ -1,9 +1,6 @@
 package com.lftechnology.raas.sdk.service;
 
-import com.lftechnology.raas.sdk.dto.Sender;
-import com.lftechnology.raas.sdk.dto.SenderWidget;
-import com.lftechnology.raas.sdk.dto.SenderWidgetResponse;
-import com.lftechnology.raas.sdk.dto.UserMigration;
+import com.lftechnology.raas.sdk.dto.*;
 import com.lftechnology.raas.sdk.pojo.ListResponse;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -21,6 +18,9 @@ public interface SenderApiService {
 
     @GET("senders/{id}")
     Call<Sender> get(@Path("id") UUID id);
+
+    @GET("senders/{id}/cip-info")
+    Call<CIPInfo> getCipInfo(@Path("id") UUID id);
 
     @GET("senders")
     Call<ListResponse<Sender>> list();

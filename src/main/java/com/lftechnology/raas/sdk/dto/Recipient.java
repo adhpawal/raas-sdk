@@ -26,6 +26,7 @@ public class Recipient {
     private String dateOfBirth;
     private String occupation;
     private String senderRelationship;
+    private Boolean enable_cash_pickup = Boolean.TRUE;
 
     public String getReferenceId() {
         return referenceId;
@@ -169,6 +170,14 @@ public class Recipient {
 
     public void setSenderRelationship(String senderRelationship) {
         this.senderRelationship = senderRelationship;
+    }
+
+    public Boolean getEnable_cash_pickup() {
+        return enable_cash_pickup;
+    }
+
+    public void setEnable_cash_pickup(Boolean enable_cash_pickup) {
+        this.enable_cash_pickup = enable_cash_pickup;
     }
 
     @Override public String toString() {
